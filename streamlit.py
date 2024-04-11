@@ -22,7 +22,7 @@ if uploaded_file is not None:
         save_uploaded_image(uploaded_file)
         with st.spinner('Predicting...'):
             st.text('Predicting...')
-            # run_predict(['python', 'predict.py', '--weights', 'best.pt', '--conf', '0.25', '--source', file_name])
-            os.system(f"python predict.py --weights best.pt --conf 0.25 --source {file_name}")
+            # run_predict(['python3', 'predict.py', '--weights', 'best.pt', '--conf', '0.25', '--source', file_name])
+            os.system(f"python3 predict.py --weights best.pt --conf 0.25 --source {file_name}")
             st.text('Prediction Done!')
         col2.image("predict_"+file_name, caption=f"Predicted Image")
