@@ -26,5 +26,7 @@ if uploaded_file is not None:
         col1.image(uploaded_file, caption="Uploaded Image")
         save_uploaded_image(uploaded_file)
         with st.spinner('Predicting...'):
+            st.text('Predicting...')
             run_predict(['python', 'predict.py', '--weights', 'best.pt', '--conf', '0.25', '--source', file_name])
+            st.text('Prediction Done!')
         col2.image("predict_"+file_name, caption=f"Predicted Image")
