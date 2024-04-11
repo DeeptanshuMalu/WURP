@@ -18,12 +18,12 @@ def save_uploaded_image(uploaded_file):
 st.title('YoloV5 Object Detection')
 # project = st.text_input('Project Name', value='Test')
 # name = st.text_input('Folder Name (Change folder name for every prediction)', value='test')
-uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+uploaded_file = st.file_uploader("Upload an image...", type="jpg")
 col1, col2 = st.columns([1, 1])
 if uploaded_file is not None:
     if st.button('Predict'):
         file_name = uploaded_file.name
-        col1.image(uploaded_file, caption=f"Uploaded Image: {file_name}")
+        col1.image(uploaded_file, caption="Uploaded Image")
         save_uploaded_image(uploaded_file)
         with st.spinner('Predicting...'):
             run_predict(['python', 'predict.py', '--weights', 'best.pt', '--conf', '0.25', '--source', file_name])
