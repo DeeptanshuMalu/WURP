@@ -1,13 +1,8 @@
 import subprocess
 import streamlit as st
+import os
 
-def run_predict(args):
-    try:
-        subprocess.run(args, check=True)
-    except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
-        return False
-    return True
+
 
 def save_uploaded_image(uploaded_file):
     # Save the uploaded image
@@ -27,6 +22,7 @@ if uploaded_file is not None:
         save_uploaded_image(uploaded_file)
         with st.spinner('Predicting...'):
             st.text('Predicting...')
-            run_predict(['python', 'predict.py', '--weights', 'best.pt', '--conf', '0.25', '--source', file_name])
+            # run_predict(['python', 'predict.py', '--weights', 'best.pt', '--conf', '0.25', '--source', file_name])
+            os.system(f"python predict.py --weights best.pt --conf 0.25 --source {file_name}")
             st.text('Prediction Done!')
         col2.image("predict_"+file_name, caption=f"Predicted Image")
