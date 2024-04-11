@@ -8,7 +8,6 @@ onnx==1.16.0
 onnxruntime==1.16.3
 onnxsim==0.4.36
 opencv_python==4.9.0.80
-opencv_python_headless==4.8.0.74
 openvino==2024.0.0
 pafy==0.5.5
 pandas==2.2.1
